@@ -1,0 +1,14 @@
+{% extends "appwiki/base.html" %}
+
+{% block title %}Tags list{% endblock %}
+
+{% block content %}
+
+<h3>Pages tagged with {{ tag_name }}<h3>
+<ul>
+{% for page in pages %}
+  <li><a href="/wikicamp/{{page.name}}/">{{ page.name }}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

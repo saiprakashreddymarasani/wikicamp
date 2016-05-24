@@ -1,0 +1,20 @@
+{% extends "appwiki/base.html" %}
+{% load wikilink %}
+
+{% block title %}{{page_name}}{% endblock %}
+
+{% block content %}
+
+<h1>{{ page_name }}</h1>
+<p>{{ content|wikify|safe }}</p>
+<hr/>
+{% if tags %}
+Tags for this page:
+  {% for tag in tags %}
+    <a href="/wikicamp/tags/{{tag.name}}/">{{ tag.name }}</a>&nbsp;
+  {% endfor %}
+{% endif %}
+<br/>
+<p><a href="/wikicamp/{{page_name}}/edit/">Edit this page</a></p>
+
+{% endblock %}
